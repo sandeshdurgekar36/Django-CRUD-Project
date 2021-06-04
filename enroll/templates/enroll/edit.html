@@ -1,0 +1,21 @@
+{% extends 'enroll/base.html' %}
+
+{% block editcontent %} 
+  <div class="container">
+      <h3>Roll Number {{id}} :- </h3>
+    <div class="col-sm-4 offset-4">
+        <h3 class="text-center mt-4 rounded-pill py-2" style="background-color: bisque;">Update Your Data</h3>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-4 offset-4">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update" class="btn btn-success" name="" id="">
+                <a href="{% url 'home' %}" class="btn btn-info">Back To Home</a>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+{% endblock editcontent %} 

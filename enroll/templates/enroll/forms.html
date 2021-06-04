@@ -1,0 +1,62 @@
+{% extends 'enroll/base.html' %}
+
+{% block content %} 
+<div class="container">
+  <div class="row">
+      <div class="col-sm-4">
+        <h4 class="mt-4 text-center rounded-pill py-2" style="background-color: bisque;">Submit Your Data Here</h4>
+          <div class="col-sm-10 offset-1 mt-4">
+                  <form action="" method="POST" novalidate>
+                      {% csrf_token %}
+                      {{form.as_p}}
+                     <div class="text-center">
+                        <input type="submit" value="Add" class="btn btn-info" name="" id="">
+                     </div>
+                  </form>
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block datacontent %} 
+<div class="col-sm-8">
+  <h4 class="mt-4 text-center rounded-pill py-2 offset-1" style="background-color: bisque;">Your Data</h4>
+<div class="col-sm-11 offset-1 mt-4">
+    {% if stud %}
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for st in stud %}
+          <tr>
+            <th scope="row">{{st.id}}</th>
+            <td>{{st.name}}</td>
+            <td>{{st.email}}</td>
+            <td>{{st.password}}</td>
+            <td>
+              <a href="{% url 'edit' st.id %}" class="btn btn-info">edit</a>
+              <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline">
+                {% csrf_token %}
+               <input type="submit" value="Delete" class="btn btn-danger" name="" id="">
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+        <h3>No data Found</h3>
+    {% endif %}
+</div>
+</div>
+</div>
+</div>
+{% endblock datacontent %} 
+        
