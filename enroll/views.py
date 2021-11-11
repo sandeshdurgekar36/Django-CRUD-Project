@@ -4,6 +4,8 @@ from .models import User
 
 # Create your views here
 # this function is to add item and show all items
+
+###############strats from here##################
 def show(request):
     if request.method == 'POST':
         fm = Student(request.POST)
@@ -36,6 +38,8 @@ def edit(request, id):
         pi = User.objects.get(pk=id)
         fm = Student(instance=pi)
     return render(request, 'enroll/edit.html',{'form': fm, 'id': id})
+
+    
     
     
 
