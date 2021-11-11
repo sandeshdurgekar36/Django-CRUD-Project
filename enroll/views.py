@@ -37,8 +37,7 @@ def edit(request, id):
         fm = Student(instance=pi)
     return render(request, 'enroll/edit.html',{'form': fm, 'id': id})
 
-
-
+# ########################################end ##########################
 
 
 
