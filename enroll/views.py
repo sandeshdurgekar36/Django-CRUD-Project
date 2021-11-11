@@ -36,4 +36,23 @@ def edit(request, id):
         pi = User.objects.get(pk=id)
         fm = Student(instance=pi)
     return render(request, 'enroll/edit.html',{'form': fm, 'id': id})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
