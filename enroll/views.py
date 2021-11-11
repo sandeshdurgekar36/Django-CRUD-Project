@@ -38,3 +38,22 @@ def edit(request, id):
     return render(request, 'enroll/edit.html',{'form': fm, 'id': id})
     
     
+
+# ########################################end ##########################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
